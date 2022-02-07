@@ -1,0 +1,16 @@
+.field {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("../../images/sun-resize.jpg");
+  width: 350px;
+  height: 257px;
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease-out;
+}
+.cold {
+  background-image: url("../../images/cold-resize.jpg");
+}
