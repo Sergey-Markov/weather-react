@@ -1,4 +1,5 @@
-const dateBuilder = (d) => {
+const dateBuilder = () => {
+  let d = new Date();
   let months = [
     "January",
     "February",

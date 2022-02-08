@@ -1,9 +1,14 @@
 import s from "./SunCard.module.css";
 import { dateBuilder } from "../../utils/dateBuilder";
+import { useState } from "react";
 
 export default function SunCard({ weather = null }) {
+  const [date, setDate] = useState(dateBuilder());
   console.log("weather:", weather);
   console.log(typeof weather);
+  setInterval(() => {
+    setDate(dateBuilder());
+  }, 60000);
   return (
     <>
       {weather != null ? (
@@ -19,7 +24,7 @@ export default function SunCard({ weather = null }) {
               <p className={s.city}>
                 {weather.name}, {weather.sys.country}
               </p>
-              <p className={s.date}>{dateBuilder(new Date())}</p>
+              <p className={s.date}>{date}</p>
             </div>
             <div>
               <span>IMG</span>
