@@ -9,8 +9,46 @@
   height: 257px;
   background-size: cover;
   background-position: bottom;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 5px;
+
   transition: 0.4 ease-out;
+  padding: 10px 15px;
 }
 .cold {
   background-image: url("../../images/cold-resize.jpg");
+}
+.card_head {
+  display: flex;
+  justify-content: space-between;
+}
+.card_footer {
+  display: flex;
+  justify-content: space-between;
+}
+.city {
+  color: #ffffff;
+  letter-spacing: 0px;
+}
+.card_chart {
+  height: 52px;
+  background-color: inherit;
+  margin-bottom: 43px;
+  margin-top: 26px;
+}
+.temperature {
+  font-size: 44px;
+}
+.temperature_feels {
+  font-size: 13px;
+}
+.weather_other {
+  font-size: 13px;
+  align-self: end;
+}
+.weather_other_text {
+  text-align: end;
+}
+.weather_other_text:not(:last-child) {
+  margin-bottom: 5px;
 }

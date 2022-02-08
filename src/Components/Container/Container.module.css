@@ -5,8 +5,7 @@
 }
 
 .field {
-  text-align: center;
-  background-color: #282c34;
+  background-color: #fff;
   color: aqua;
   font-size: 12px;
   padding: 10px;
@@ -21,6 +20,7 @@
 @media screen and (min-width: 1280px) {
   .field {
     padding: 15px;
+    padding-top: 132px;
     font-size: 16px;
   }
 }
