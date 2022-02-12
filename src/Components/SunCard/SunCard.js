@@ -4,8 +4,7 @@ import { useState } from "react";
 
 export default function SunCard({ weather = null }) {
   const [date, setDate] = useState(dateBuilder());
-  console.log("weather:", weather);
-  console.log(typeof weather);
+
   setInterval(() => {
     setDate(dateBuilder());
   }, 60000);
@@ -26,9 +25,13 @@ export default function SunCard({ weather = null }) {
               </p>
               <p className={s.date}>{date}</p>
             </div>
-            <div>
-              <span>IMG</span>
-              <span>{weather.weather[0].main}</span>
+            <div className={s.weather_img_field}>
+              <img
+                className={s.weather_img}
+                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                alt="weather icon"
+              />
+              <p>{weather.weather[0].main}</p>
             </div>
           </div>
 
@@ -60,7 +63,7 @@ export default function SunCard({ weather = null }) {
           </div>
         </div>
       ) : (
-        <div className={`${s.field} + ${s}`}>
+        <div className={`${s.field_weather_undef}`}>
           <div className={s.card_head}>
             <div>
               <p className={s.city}>City: ---, --</p>

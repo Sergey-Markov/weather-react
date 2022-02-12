@@ -12,11 +12,32 @@
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 5px;
   padding: 10px 15px;
+  padding-top: 0;
   color: #ffffff;
   margin-bottom: 10px;
 
   transition: 0.4 ease-out;
 }
+.field_weather_undef {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.75)
+    ),
+    url("../../images/sun-resize.jpg");
+  width: 350px;
+  height: 257px;
+  background-size: cover;
+  background-position: bottom;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: #ffffff;
+  margin-bottom: 10px;
+
+  transition: 0.4 ease-out;
+}
+
 .cold {
   background-image: linear-gradient(
       to bottom,
@@ -28,6 +49,7 @@
 .card_head {
   display: flex;
   justify-content: space-between;
+  align-items:flex-end;
 }
 .card_footer {
   display: flex;
@@ -36,6 +58,14 @@
 .city {
   letter-spacing: 0px;
   text-shadow: 3px 3px 3px rgba(50, 50, 70, 0.75);
+}
+.weather_img_field{
+  display: flex;
+  align-items: center;
+}
+.weather_img{
+  width: 50px;
+  height: 50px;
 }
 .card_chart {
   height: 52px;
