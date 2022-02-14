@@ -1,6 +1,9 @@
+import { useDispatch } from "react-redux";
+import { search } from "../../Repositoriys/search";
 import s from "./Form.module.css";
 
-export default function Form({ onChange, query, search }) {
+export default function Form({ onChange, query, clearInput }) {
+  const dispatch = useDispatch();
   return (
     <div className={s.field}>
       <input
@@ -11,9 +14,17 @@ export default function Form({ onChange, query, search }) {
         autoComplete="on"
         onChange={(e) => onChange(e)}
         value={query}
-        onKeyPress={(e) => search(e)}
+        onKeyPress={(e) => {
+          search(e, query, dispatch, clearInput);
+        }}
       />
-      <button className={s.button} type="submit" onClick={(e) => search(e)}>
+      <button
+        className={s.button}
+        type="submit"
+        onClick={(e) => {
+          search(e, query, dispatch, clearInput);
+        }}
+      >
         Add
       </button>
     </div>

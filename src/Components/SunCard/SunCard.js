@@ -1,16 +1,20 @@
 import s from "./SunCard.module.css";
 import { dateBuilder } from "../../utils/dateBuilder";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useInterval } from "../../utils/useInterval";
 
-export default function SunCard({ weather = null }) {
+export default function SunCard() {
   const [date, setDate] = useState(dateBuilder());
+  const state = useSelector((state) => state);
+  const { weather } = state.weatherReducer;
 
-  setInterval(() => {
+  useInterval(() => {
     setDate(dateBuilder());
-  }, 60000);
+  }, 20000);
   return (
     <>
-      {weather != null ? (
+      {weather?.main ? (
         <div
           className={
             Math.round(weather.main.temp) > 16

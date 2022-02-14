@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { API } from "./utils/weatherApi";
-import { fetchWeatherAction } from "./Redux/slices/weatherSlices";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import Container from "./Components/Container/Container";
 import ContainerForCards from "./Components/ContainerForCards/ContainerForCards";
 import Form from "./Components/Form/Form";
@@ -13,39 +11,26 @@ import s from "./App.module.css";
 function App() {
   const [query, setQuery] = useState("");
 
-  const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchWeatherAction(query));
-  // }, []);
-
   const state = useSelector((state) => state);
-  const { weather, loading, error } = state.weatherReducer;
+  const { loading, error } = state.weatherReducer;
   function inputChange(e) {
     setQuery(e.target.value);
   }
-  async function search(e) {
-    if (e.key === "Enter" || e.target.tagName === "BUTTON") {
-      await dispatch(fetchWeatherAction(query));
-      console.log("weather in search:", state);
-      setQuery("");
-    }
+  function clearInput() {
+    setQuery("");
   }
 
   return (
     <Container>
       <div>
-        <Form onChange={inputChange} query={query} search={search} />
+        <Form onChange={inputChange} query={query} clearInput={clearInput} />
         {loading ? (
           <Spiner />
         ) : error ? (
           <h1 className={s.err}>{error?.message} </h1>
         ) : (
           <ContainerForCards>
-            <SunCard weather={weather} />
-            <SunCard weather={weather} />
-            <SunCard weather={weather} />
-            <SunCard weather={weather} />
-            <SunCard weather={weather} />
+            <SunCard />
           </ContainerForCards>
         )}
       </div>
