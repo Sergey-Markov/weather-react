@@ -4,7 +4,6 @@ import Container from "./Components/Container/Container";
 import ContainerForCards from "./Components/ContainerForCards/ContainerForCards";
 import Form from "./Components/Form/Form";
 import Spiner from "./Components/Spiner/Spiner";
-import SunCard from "./Components/SunCard/SunCard";
 import s from "./App.module.css";
 
 // display icon https://openweathermap.org/img/wn/${icon}.png
@@ -29,9 +28,7 @@ function App() {
         ) : error ? (
           <h1 className={s.err}>{error?.message} </h1>
         ) : (
-          <ContainerForCards>
-            <SunCard />
-          </ContainerForCards>
+          <ContainerForCards />
         )}
       </div>
     </Container>

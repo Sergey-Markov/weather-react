@@ -1,5 +1,8 @@
 import { useDispatch } from "react-redux";
+import countrySlice from "../../Redux/slices/countrySlice";
+import weatherSlice from "../../Redux/slices/weatherSlice";
 import { search } from "../../Repositoriys/search";
+// import { addCard } from "../../utils/addCard";
 import s from "./Form.module.css";
 
 export default function Form({ onChange, query, clearInput }) {
@@ -21,8 +24,10 @@ export default function Form({ onChange, query, clearInput }) {
       <button
         className={s.button}
         type="submit"
-        onClick={(e) => {
-          search(e, query, dispatch, clearInput);
+        onClick={async (e) => {
+          await search(e, query, dispatch, clearInput);
+          // addCard();
+          dispatch(countrySlice.actions.addCountry(query));
         }}
       >
         Add

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API } from "../../utils/weatherApi";
+// import countryReducer from "../reducers/countryReducer";
 
 // actions
 export const fetchWeatherAction = createAsyncThunk(
@@ -19,9 +20,10 @@ export const fetchWeatherAction = createAsyncThunk(
 );
 
 // slices
-const weatherSlices = createSlice({
+const weatherSlice = createSlice({
   name: "weather",
   initialState: {},
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchWeatherAction.pending, (state, action) => {
       state.loading = true;
@@ -39,4 +41,6 @@ const weatherSlices = createSlice({
   },
 });
 
-export default weatherSlices.reducer;
+export const weatherReducer = weatherSlice.reducer;
+
+export default weatherSlice;
