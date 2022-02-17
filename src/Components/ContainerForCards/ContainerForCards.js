@@ -4,7 +4,6 @@ export default function ContainerForCards({ children }) {
   return (
     <div className={s.field} id="containerForCards">
       {children}
-      <SunCard />
     </div>
   );
 }
