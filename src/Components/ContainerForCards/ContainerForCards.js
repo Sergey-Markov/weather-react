@@ -1,4 +1,3 @@
-import SunCard from "../SunCard/SunCard";
 import s from "./ContainerForCards.module.css";
 export default function ContainerForCards({ children }) {
   return (

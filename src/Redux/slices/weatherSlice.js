@@ -29,7 +29,7 @@ const weatherSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchWeatherAction.fulfilled, (state, action) => {
-      state.weather = action?.payload;
+      // state.weather = action?.payload;
       state.loading = false;
       state.error = undefined;
     });

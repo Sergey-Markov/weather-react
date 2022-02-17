@@ -9,7 +9,15 @@ import s from "./Form.module.css";
 export default function Form({ onChange, query, clearInput }) {
   const dispatch = useDispatch();
   return (
-    <div className={s.field}>
+    <form
+      className={s.field}
+      onSubmit={(e) => {
+        addCard(query);
+        clearInput();
+        dispatch(countrySlice.actions.addCountry(query));
+        e.preventDefault();
+      }}
+    >
       <input
         name="city"
         className={s.input}
@@ -18,22 +26,11 @@ export default function Form({ onChange, query, clearInput }) {
         autoComplete="on"
         onChange={(e) => onChange(e)}
         value={query}
-        onKeyPress={(e) => {
-          // search(e, query, dispatch, clearInput);
-        }}
+        required
       />
-      <button
-        className={s.button}
-        type="submit"
-        onClick={async (e) => {
-          addCard(query);
-          // await search(e, query, dispatch, clearInput);
-          // addCard();
-          dispatch(countrySlice.actions.addCountry(query));
-        }}
-      >
+      <button className={s.button} type="submit">
         Add
       </button>
-    </div>
+    </form>
   );
 }

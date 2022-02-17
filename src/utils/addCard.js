@@ -1,12 +1,12 @@
 import axios from "axios";
-import { dateBuilder } from "./dateBuilder";
+import "react-toastify/dist/ReactToastify.css";
 import { API } from "./weatherApi";
-import s from "../Components/SunCard/SunCard.module.css";
 import { createCard } from "./CreateCard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export async function addCard(query) {
   const containerForCards = document.getElementById("containerForCards");
-  //   console.log(`${as}`);
   const data = await getData(query);
   containerForCards.insertAdjacentHTML("beforeend", createCard(data));
 }
@@ -18,6 +18,8 @@ async function getData(query) {
     );
     return data;
   } catch (error) {
-    console.log(error);
+    if (!error?.response) throw error;
+    return error?.response?.data;
+    // {cod: '404', message: 'city not found'}
   }
 }

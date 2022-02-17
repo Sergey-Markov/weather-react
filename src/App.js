@@ -13,7 +13,7 @@ function App() {
   const state = useSelector((state) => state);
   const { loading, error } = state.weatherReducer;
   function inputChange(e) {
-    setQuery(e.target.value);
+    setQuery(e.target.value.trim());
   }
   function clearInput() {
     setQuery("");
